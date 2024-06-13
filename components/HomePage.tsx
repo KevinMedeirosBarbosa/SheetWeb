@@ -1,0 +1,58 @@
+"use client";
+import MainButton from "@/components/MainButton";
+import Menu from "@/components/Menu";
+import ContainerInput from "./ContainerInput";
+import Maininfo from "./MainInfo";
+
+function HomePage() {
+  return (
+    <div className=" flex flex-col max-w-7xl mx-auto">
+      <h1 className="text-center mx-auto font-semibold text-2xl mt-1">
+        Planilha de Cálculo de Pontos por Caso de Uso
+      </h1>
+
+      <div className="bg-blue-500 mt-5 w-full">
+        <p className="text-white text-xl p-1 font-bold text-center">
+          Identificação
+        </p>
+      </div>
+
+      <MainButton />
+
+      <div className="flex flex-col mt-1">
+        <>
+          <ContainerInput
+            firstTitle="Cliente"
+            secondTitle="Data de Elaboração"
+            firstPlaceHolder="Nenhum Cliente Cadastrado"
+            secondPlaceHolder="Preencha os Campos"
+            dropdown={true}
+          />
+          <ContainerInput
+            firstTitle="Gerente de Projeto"
+            secondTitle="Data de Atualização"
+            firstPlaceHolder="Preencha os Campos"
+            secondPlaceHolder="Preencha os Campos"
+            dropdown={false}
+          />
+
+          <ContainerInput
+            firstTitle="Título da Proposta"
+            secondTitle="Nr. de Revisão"
+            firstPlaceHolder="Preencha os Campos"
+            secondPlaceHolder="Preencha os Campos"
+            dropdown={false}
+          />
+        </>
+
+        <div className="mt-5">
+          <Maininfo />
+        </div>
+      </div>
+
+      <Menu />
+    </div>
+  );
+}
+
+export default HomePage;
