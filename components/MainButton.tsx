@@ -1,5 +1,5 @@
 const navigation = [
-  {name: 'Criar', href:'/checkinput'},
+  {name: 'Criar', href:'#'},
   {name: 'Consultar', href:'#'},
   {name: 'Cadastrar Cliente', href:'/client'}
 ] 
