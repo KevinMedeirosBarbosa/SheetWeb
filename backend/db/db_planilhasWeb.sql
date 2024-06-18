@@ -2,6 +2,10 @@ create database planilhasWeb default character set utf8mb4 collate utf8mb4_bin;
 
 use planilhasWeb;
 
+CREATE USER 'pcuser'@'%' IDENTIFIED BY 'Flu021202';
+GRANT ALL PRIVILEGES ON *.* TO 'pcuser'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
 create table if not exists clients (
  id int auto_increment primary key,
  name varchar(50),
