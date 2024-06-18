@@ -38,8 +38,8 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
 
   useEffect(() => {
     const primeiroPreenchido =
-      firstInputValue !== "" || (dropdown && clients.length > 0);
-    const segundoPreenchido = secondInputValue !== "";
+      firstInputValue.trim() !== "" || (dropdown && clients.length > 0);
+    const segundoPreenchido = secondInputValue.trim() !== "";
 
     // Chama a função de callback com true se ambos os campos estiverem preenchidos, senão false
     onPreenchido(primeiroPreenchido && segundoPreenchido);
@@ -55,6 +55,15 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSecondInputValue(event.target.value);
+  };
+
+  const handleInputBlur = () => {
+    if (firstInputValue.trim() === "") {
+      setFirstInputValue("");
+    }
+    if (secondInputValue.trim() === "") {
+      setSecondInputValue("");
+    }
   };
 
   return (
@@ -73,6 +82,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
               placeholder={firstPlaceHolder}
               value={firstInputValue}
               onChange={handleFirstInputChange}
+              onBlur={handleInputBlur}
             />
           </>
         )}
@@ -85,6 +95,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
           placeholder={secondPlaceHolder}
           value={secondInputValue}
           onChange={handleSecondInputChange}
+          onBlur={handleInputBlur}
         />
       </div>
     </div>
